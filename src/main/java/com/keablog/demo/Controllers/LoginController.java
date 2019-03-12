@@ -1,12 +1,11 @@
 package com.keablog.demo.Controllers;
 
 import com.keablog.demo.Database.Database;
+import com.keablog.demo.Objects.Message;
 import com.keablog.demo.Objects.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LoginController {
@@ -26,7 +25,13 @@ public class LoginController {
             return "login";
         }
 
+    }
 
+    @PostMapping("/message")
+    public String message(@ModelAttribute (name="Message") Message message, Model model) {
+        model.addAttribute("title", message.getTitle());
+        model.addAttribute("text", message.getText());
+        return "admin";
     }
 
 

@@ -11,11 +11,13 @@
 
 <form method="get" action="/about">
     <button type="submit">Back to login</button>
-    <br>
-    <br>
-    <input type="text" placeholder="Title" name="message_title">
-    <input type="text" placeholder="Message" name="message_text">
+</form>
+<form th:action="@{/message}" method="post" th:object="${Message}">
+    <input type="text" placeholder="Title" name="title">
+    <input type="text" placeholder="Message" name="text">
     <button type="submit">Post!</button>
 </form>
+<p th:text="${title}"></p>
+<p th:text="${text}"></p>
 </body>
 </html>

@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class MessageService {
 
-    Scanner scanner = new Scanner(System.in);
-
     public void newPost(User user) {
+
+        
 
     }
 
