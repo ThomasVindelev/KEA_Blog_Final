@@ -31,7 +31,7 @@ public class Database {
     }
 
     public ResultSet getNewestPosts() throws SQLException {
-        query = "SELECT id_user, post_title, post_text FROM blogposts INNER JOIN users ON blogposts.id_user = users.username LIMIT 10 ORDER BY id DESC";
+        query = "SELECT * FROM blogposts INNER JOIN users ON blogposts.id_username = users.id_users";
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
         return resultSet;

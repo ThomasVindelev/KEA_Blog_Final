@@ -6,6 +6,9 @@ public class Message {
     private String text;
     private String username;
 
+    public Message() {
+    }
+
     public Message(String title, String text) {
         this.title = title;
         this.text = text;

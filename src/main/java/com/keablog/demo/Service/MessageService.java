@@ -2,18 +2,18 @@ package com.keablog.demo.Service;
 
 import com.keablog.demo.Database.Database;
 import com.keablog.demo.Objects.Message;
+import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class MessageService {
 
     private Database database = new Database();
     private ResultSet resultSet;
-    private Message message;
-    private List<Message> messageList;
 
     public MessageService() throws SQLException {
 
@@ -24,9 +24,11 @@ public class MessageService {
     }
 
     public List<Message> readNewMessages() throws SQLException {
+        List<Message> messageList = new ArrayList<>();
         resultSet = database.getNewestPosts();
         while (resultSet.next()) {
-            message.setUsername(resultSet.getString("id_username"));
+            Message message = new Message();
+            message.setUsername(resultSet.getString("username"));
             message.setTitle(resultSet.getString("post_title"));
             message.setText(resultSet.getString("post_text"));
             messageList.add(message);

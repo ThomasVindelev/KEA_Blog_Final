@@ -7,7 +7,10 @@
 </head>
 <body>
 <div th:replace="header :: header"></div>
-<h1>Her skal blog-indlæg stå</h1>
-
+<div th:each="message:${messages}">
+    <p th:text="${message.title}"></p>
+    <p th:text="${message.text}"></p>
+    <p th:text="${message.username}"></p>
+</div>
 </body>
 </html>
