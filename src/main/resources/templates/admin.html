@@ -8,8 +8,14 @@
 <body>
 <div th:replace="header :: header"></div>
 <h1>Hello ADMIN!</h1>
+
 <form method="get" action="/about">
     <button type="submit">Back to login</button>
+    <br>
+    <br>
+    <input type="text" placeholder="Title" name="message_title">
+    <input type="text" placeholder="Message" name="message_text">
+    <button type="submit">Post!</button>
 </form>
 </body>
 </html>

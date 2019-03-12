@@ -14,7 +14,7 @@ public class Database {
         this.connection = DriverManager.getConnection("jdbc:mysql://localhost/blog?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false", "root", "");
     }
 
-    public void createPost(Message message) throws SQLException {
+    /*public void createPost(Message message) throws SQLException {
         query = "INSERT INTO blogposts (`post_title`, `post_text`) VALUES (?, ?)";
         executeQuery(query, message);
     }
@@ -25,7 +25,7 @@ public class Database {
         preparedStatement.setString(4, message.text);
         preparedStatement.executeUpdate();
         preparedStatement.close();
-    }
+    }*/
 
 
 
