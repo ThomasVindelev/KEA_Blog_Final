@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
 
@@ -16,7 +18,7 @@ public class LoginController {
     }
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute (name="loginForm") User user, Model model, Database database) {
+    public String login(@ModelAttribute User user, Model model, Database database) {
 
         if (user.getUsername().equals("h") && user.getPassword().equals("h")) {
             return "admin";
@@ -28,7 +30,7 @@ public class LoginController {
     }
 
     @PostMapping("/message")
-    public String message(@ModelAttribute (name="Message") Message message, Model model) {
+    public String message(@ModelAttribute Message message, Model model) {
         model.addAttribute("title", message.getTitle());
         model.addAttribute("text", message.getText());
         return "admin";
