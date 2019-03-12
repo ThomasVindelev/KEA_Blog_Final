@@ -1,5 +1,7 @@
-package com.keablog.demo;
+package com.keablog.demo.Controllers;
 
+import com.keablog.demo.Database.Database;
+import com.keablog.demo.Objects.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;

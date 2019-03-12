@@ -1,4 +1,4 @@
-package com.keablog.demo;
+package com.keablog.demo.Objects;
 
 public class Message {
 

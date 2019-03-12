@@ -1,4 +1,6 @@
-package com.keablog.demo;
+package com.keablog.demo.Database;
+import com.keablog.demo.Objects.Message;
+
 import java.sql.*;
 
 public class Database {
@@ -24,6 +26,8 @@ public class Database {
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }
+
+
 
 
 

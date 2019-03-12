@@ -1,4 +1,4 @@
-package com.keablog.demo;
+package com.keablog.demo.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
