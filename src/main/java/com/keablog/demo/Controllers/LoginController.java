@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 @Controller
 public class LoginController {
@@ -28,13 +29,5 @@ public class LoginController {
         }
 
     }
-
-    @PostMapping("/message")
-    public String message(@ModelAttribute Message message, Model model) {
-        model.addAttribute("title", message.getTitle());
-        model.addAttribute("text", message.getText());
-        return "admin";
-    }
-
 
 }
