@@ -8,6 +8,7 @@ public class Database {
 
     private PreparedStatement preparedStatement;
     private Connection connection;
+    private Statement statement;
     private ResultSet resultSet;
     private String query;
 
@@ -27,6 +28,13 @@ public class Database {
         preparedStatement.setString(3, message.getText());
         preparedStatement.executeUpdate();
         preparedStatement.close();
+    }
+
+    public ResultSet getNewestPosts() throws SQLException {
+        query = "SELECT id_user, post_title, post_text FROM blogposts INNER JOIN users ON blogposts.id_user = users.username LIMIT 10 ORDER BY id DESC";
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(query);
+        return resultSet;
     }
 
 

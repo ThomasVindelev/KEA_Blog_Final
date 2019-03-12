@@ -4,6 +4,7 @@ public class Message {
 
     private String title;
     private String text;
+    private String username;
 
     public Message(String title, String text) {
         this.title = title;
@@ -26,4 +27,11 @@ public class Message {
         this.text = text;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
