@@ -48,10 +48,4 @@ public class Database {
         return resultSet.next();
     }
 
-
-
-
-
-
-
 }
