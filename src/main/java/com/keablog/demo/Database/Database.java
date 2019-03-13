@@ -13,7 +13,7 @@ public class Database {
     private String query;
 
     public Database() throws SQLException {
-        this.connection = DriverManager.getConnection("jdbc:mysql://localhost/blog?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false", "root", "");
+        this.connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/keablog?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false", "keablog", "Rf40H?f1LB?V");
     }
 
     public void createPost(Message message) throws SQLException {
