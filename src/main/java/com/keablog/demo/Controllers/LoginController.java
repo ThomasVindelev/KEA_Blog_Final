@@ -12,15 +12,17 @@ import java.sql.SQLException;
 @Controller
 public class LoginController {
 
+    Database database;
+
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String getLoginForm() {
         return "login";
     }
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute User user, Model model, Database database) {
+    public String login(@ModelAttribute User user, Model model, Database database) throws SQLException {
 
-        if (user.getUsername().equals("h") && user.getPassword().equals("h")) {
+        if (database.verifyUser(user)) {
             return "admin";
         } else {
             model.addAttribute("invalid", true);

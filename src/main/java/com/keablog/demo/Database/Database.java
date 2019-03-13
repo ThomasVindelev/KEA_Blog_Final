@@ -44,6 +44,13 @@ public class Database {
         return resultSet;
     }
 
+    public boolean verifyUser(User user) throws SQLException {
+        query = "SELECT * FROM users WHERE username = '" + user.getUsername() + "' AND password = '" + user.getPassword() + "'";
+        preparedStatement = connection.prepareStatement(query);
+        resultSet = preparedStatement.executeQuery();
+        return resultSet.next();
+    }
+
 
 
 
