@@ -7,10 +7,24 @@
 </head>
 <body>
 <div th:replace="header :: header"></div>
-<div th:each="message:${messages}">
-    <p th:text="${message.title}"></p>
-    <p th:text="${message.text}"></p>
-    <p th:text="${message.username}"></p>
+<div>
+    <table class="table">
+
+        <tr>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>User</th>
+        </tr>
+        <div th:each="message:${messages}">
+            <tr>
+                <td><p th:text="${message.title}"></p></td>
+                <td><p th:text="${message.text}"></p></td>
+                <td><p th:text="${message.username}"></p></td>
+            </tr>
+        </div>
+
+    </table>
+
 </div>
 </body>
 </html>
