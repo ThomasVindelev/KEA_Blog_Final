@@ -25,14 +25,14 @@ public class MessageService {
 
     public List<Message> getNewMessages() throws SQLException {
         List<Message> messageList = new ArrayList<>();
-        resultSet = database.getNewestPosts();
+        resultSet = database.getPosts(1);
         messageList = populateList(resultSet);
         return messageList;
     }
 
     public List<Message> getAllMessages() throws SQLException {
         List<Message> messageList = new ArrayList<>();
-        resultSet = database.getAllPosts();
+        resultSet = database.getPosts(2);
         messageList = populateList(resultSet);
         return messageList;
     }
