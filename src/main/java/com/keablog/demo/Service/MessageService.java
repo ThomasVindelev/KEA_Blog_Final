@@ -23,9 +23,22 @@ public class MessageService {
         database.createPost(message);
     }
 
-    public List<Message> readNewMessages() throws SQLException {
+    public List<Message> getNewMessages() throws SQLException {
         List<Message> messageList = new ArrayList<>();
         resultSet = database.getNewestPosts();
+        messageList = populateList(resultSet);
+        return messageList;
+    }
+
+    public List<Message> getAllMessages() throws SQLException {
+        List<Message> messageList = new ArrayList<>();
+        resultSet = database.getAllPosts();
+        messageList = populateList(resultSet);
+        return messageList;
+    }
+
+    public List<Message> populateList(ResultSet resultSet) throws SQLException {
+        List<Message> messageList = new ArrayList<>();
         while (resultSet.next()) {
             Message message = new Message();
             message.setUsername(resultSet.getString("username"));

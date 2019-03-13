@@ -16,16 +16,22 @@ public class BlogController {
         return "index";
     }
 
+    @Autowired
+    MessageService service;
+    @GetMapping("/history")
+    public String getHistory(Model model) throws SQLException {
+        model.addAttribute("messages", service.getAllMessages());
+        return "history";
+    }
+
     @GetMapping("/about")
     public String getAbout() {
         return "about";
     }
 
-    @Autowired
-    MessageService service;
     @GetMapping("/blog")
     public String getBlog(Model model) throws SQLException {
-        model.addAttribute("messages", service.readNewMessages());
+        model.addAttribute("messages", service.getNewMessages());
         return "blog";
     }
 

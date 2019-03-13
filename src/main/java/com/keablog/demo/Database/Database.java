@@ -31,7 +31,14 @@ public class Database {
     }
 
     public ResultSet getNewestPosts() throws SQLException {
-        query = "SELECT * FROM blogposts INNER JOIN users ON blogposts.id_username = users.id_users";
+        query = "SELECT * FROM blogposts INNER JOIN users ON blogposts.id_username = users.id_users ORDER BY id DESC LIMIT 10";
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(query);
+        return resultSet;
+    }
+
+    public ResultSet getAllPosts() throws SQLException {
+        query = "SELECT * FROM blogposts INNER JOIN users ON blogposts.id_username = users.id_users ORDER BY id DESC";
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
         return resultSet;

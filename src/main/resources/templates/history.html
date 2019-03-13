@@ -3,16 +3,19 @@
 <head>
     <link href="https://bootswatch.com/4/litera/bootstrap.min.css" type="text/css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Newest posts</title>
+    <title>All posts</title>
 </head>
 <body>
 <div th:replace="header :: header"></div>
 <br>
-<h2>Newest posts</h2>
+<h2>All posts</h2>
+<br>
+<form method="get" action="/blog">
+    <button type="submit">Back to newest posts</button>
+</form>
 <br>
 <div>
     <table class="table">
-
         <tr>
             <th>Subject</th>
             <th>Message</th>
@@ -25,12 +28,7 @@
                 <td><p th:text="${message.username}"></p></td>
             </tr>
         </div>
-
     </table>
-    <br>
-    <form method="get" action="/history">
-        <button type="submit">See all posts</button>
-    </form>
 </div>
 </body>
 </html>
