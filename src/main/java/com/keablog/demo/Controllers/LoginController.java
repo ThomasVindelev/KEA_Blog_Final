@@ -2,6 +2,8 @@ package com.keablog.demo.Controllers;
 
 import com.keablog.demo.Database.Database;
 import com.keablog.demo.Objects.User;
+import com.keablog.demo.Service.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +19,14 @@ public class LoginController {
         return "login";
     }
 
+    @Autowired
+    LoginService loginService;
+
     @PostMapping("/login")
     public String login(HttpSession httpSession, @ModelAttribute User user, Model model, Database database) throws SQLException {
 
-        if (database.verifyUser(user)) {
-            httpSession.setAttribute(user.getUsername(), user);
+        if (loginService.verifyUser(user)) {
+            httpSession.setAttribute("username", user.getUsername());
             return "admin";
         } else {
             model.addAttribute("invalid", true);

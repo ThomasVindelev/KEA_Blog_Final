@@ -18,12 +18,12 @@ public class Database {
 
     public void createPost(Message message) throws SQLException {
         query = "INSERT INTO blogposts (`id_username`,`post_title`, `post_text`) VALUES (?, ?, ?)";
-        executeQuery(query, message);
+        sendPostQuery(query, message);
     }
 
-    public void executeQuery(String query, Message message) throws SQLException {
+    public void sendPostQuery(String query, Message message) throws SQLException {
         preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setInt(1, 1);
+        preparedStatement.setInt(1, 2);
         preparedStatement.setString(2, message.getTitle());
         preparedStatement.setString(3, message.getText());
         preparedStatement.executeUpdate();
@@ -41,11 +41,11 @@ public class Database {
         return resultSet;
     }
 
-    public boolean verifyUser(User user) throws SQLException {
+    public ResultSet verifyUser(User user) throws SQLException {
         query = "SELECT * FROM users WHERE username = '" + user.getUsername() + "' AND password = '" + user.getPassword() + "'";
         preparedStatement = connection.prepareStatement(query);
         resultSet = preparedStatement.executeQuery();
-        return resultSet.next();
+        return resultSet;
     }
 
 
