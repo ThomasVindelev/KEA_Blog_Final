@@ -12,7 +12,7 @@ ul {
 }
 
 li a p {
-    font-size: 18px;
+    font-size: 24px;
     margin: 0;
     padding: 0;
 }
@@ -35,6 +35,7 @@ li a.active {
     color: black;
 }
 
-button {
+ul form {
     float: right;
+    padding: 25px 10px;
 }
