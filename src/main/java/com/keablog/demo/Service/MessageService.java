@@ -2,6 +2,7 @@ package com.keablog.demo.Service;
 
 import com.keablog.demo.Database.Database;
 import com.keablog.demo.Objects.Message;
+import com.keablog.demo.Objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,8 @@ public class MessageService {
 
     private ResultSet resultSet;
 
-    public void newPost(Message message) throws SQLException {
-        database.createPost(message);
+    public void newPost(Message message, User user) throws SQLException {
+        database.createPost(message, user);
     }
 
     public List<Message> getNewMessages() throws SQLException {

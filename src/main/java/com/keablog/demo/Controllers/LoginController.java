@@ -1,6 +1,5 @@
 package com.keablog.demo.Controllers;
 
-import com.keablog.demo.Database.Database;
 import com.keablog.demo.Objects.User;
 import com.keablog.demo.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;

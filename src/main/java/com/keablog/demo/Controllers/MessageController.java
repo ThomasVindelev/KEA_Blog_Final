@@ -20,10 +20,10 @@ public class MessageController {
     }
 
     @PostMapping("/message")
-    public String message(@ModelAttribute (name="Message") Message message, Model model) throws SQLException {
+    public String message(@ModelAttribute (name="Message") Message message, Model model, User user) throws SQLException {
         model.addAttribute("title", message.getTitle());
         model.addAttribute("text", message.getText());
-        messageService.newPost(message);
+        messageService.newPost(message, user);
         return "admin";
     }
 
