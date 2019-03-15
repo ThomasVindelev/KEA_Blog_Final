@@ -4,18 +4,30 @@ public class User {
 
     private int id;
     private String username;
-    private String fullName;
+    private String firstname;
+    private String lastname;
     private String password;
+    private int id_role;
 
     public User() {
 
     }
 
-    public User(int id, String username, String fullName, String password) {
+    public User(int id, String username, String firstname, String lastname, String password, int id_role) {
         this.id = id;
         this.username = username;
-        this.fullName = fullName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.password = password;
+        this.id_role = id_role;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -26,27 +38,35 @@ public class User {
         this.username = username;
     }
 
-    public int getId() {
-        return id;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getFullName() {
-        return fullName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getId_role() {
+        return id_role;
+    }
+
+    public void setId_role(int id_role) {
+        this.id_role = id_role;
     }
 }
