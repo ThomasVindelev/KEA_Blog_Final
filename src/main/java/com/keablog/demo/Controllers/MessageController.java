@@ -26,7 +26,7 @@ public class MessageController {
         model.addAttribute("title", message.getTitle());
         model.addAttribute("text", message.getText());
         messageService.newPost(message);
-        return "admin";
+        return "redirect:/blog";
     }
 
 }

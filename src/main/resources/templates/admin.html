@@ -9,16 +9,6 @@
 <div th:replace="fragments/headerBoot :: headerBoot"></div>
 <h1>Hello ADMIN!</h1>
 
-<form method="get" action="/about">
-    <button type="submit">Back to login</button>
-</form>
-<form th:action="@{/message}" method="post" th:object="${Message}">
-    <input type="text" placeholder="Title" name="title">
-    <input type="text" placeholder="Message" name="text">
-    <p th:text="${session.id}"></p>
-    <input type="hidden" th:value="${session.id}" name="uid">
-    <button type="submit">Post!</button>
-</form>
 <p th:text="${title}"></p>
 <p th:text="${text}"></p>
 

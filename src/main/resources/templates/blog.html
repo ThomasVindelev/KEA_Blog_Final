@@ -9,6 +9,14 @@
 <div th:replace="fragments/headerBoot :: headerBoot"></div>
 <br>
 <h2>Newest posts</h2>
+<div th:if="${session.username != null}">
+    <form th:action="@{/message}" method="post" th:object="${Message}">
+        <input type="text" placeholder="Title" name="title">
+        <input type="text" placeholder="Message" name="text">
+        <input type="hidden" th:value="${session.id}" name="uid">
+        <button type="submit">Post!</button>
+    </form>
+</div>
 <br>
 <form method="get" action="/history">
     <button type="submit">See all posts</button>

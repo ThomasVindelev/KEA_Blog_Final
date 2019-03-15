@@ -28,7 +28,7 @@
                     <a class="nav-link" href="/login" th:if="${session.username == null}">Log in</a>
                     <a class="nav-link" href="/logout" th:if="${session.username != null}">Log out</a>
                 </li>
-
+            <h6 th:if="${session.username != null}">Logged in as <p th:text="${session.username}"></p></h6>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
