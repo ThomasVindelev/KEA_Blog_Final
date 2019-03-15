@@ -25,18 +25,15 @@ public class Database {
     }
 
     public void sendPostQuery(String query, Message message) throws SQLException {
-        getConnection();
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, 2);
         preparedStatement.setString(2, message.getTitle());
         preparedStatement.setString(3, message.getText());
         preparedStatement.executeUpdate();
-        connection.close();
         preparedStatement.close();
     }
 
     public ResultSet getPosts(int choice) throws SQLException {
-        getConnection();
         if (choice == 1) {
             query = "SELECT * FROM blogposts INNER JOIN users ON blogposts.id_username = users.id_users ORDER BY id DESC LIMIT 10";
         } else {
@@ -44,20 +41,13 @@ public class Database {
         }
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
-        connection.close();
         return resultSet;
     }
 
     public ResultSet verifyUser(User user) throws SQLException {
-        getConnection();
         query = "SELECT * FROM users WHERE username = '" + user.getUsername() + "' AND password = '" + user.getPassword() + "'";
         preparedStatement = connection.prepareStatement(query);
         resultSet = preparedStatement.executeQuery();
-        connection.close();
         return resultSet;
-    }
-
-    public Connection getConnection() {
-        return connection;
     }
 }
