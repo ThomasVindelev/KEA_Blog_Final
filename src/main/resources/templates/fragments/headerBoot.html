@@ -24,11 +24,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
             </li>
-            <div th:if="${session.username == null}">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Log in</a>
+                    <a class="nav-link" href="/login" th:if="${session.username == null}">Log in</a>
+                    <a class="nav-link" href="/logout" th:if="${session.username != null}">Log out</a>
                 </li>
-            </div>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
