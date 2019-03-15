@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+li a p {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+li a {
+    float: left;
+    display: block;
+    color: white;
+    padding: 25px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+li a:hover {
+    background-color: red;
+}
+
+li a.active {
+    background-color: white;
+    color: black;
+}
+
+button {
+    float: right;
+}

@@ -39,4 +39,9 @@ public class BlogController {
         return "blog";
     }
 
+    @GetMapping("/testsite")
+    public String getTestsite(){
+        return "testsite";
+    }
+
 }
