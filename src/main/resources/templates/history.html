@@ -20,6 +20,7 @@
             <th>Subject</th>
             <th>Message</th>
             <th>User</th>
+            <div></div>
         </tr>
         <div th:each="message:${messages}">
             <tr>
@@ -28,6 +29,7 @@
                 <td><p th:text="${message.username}"></p></td>
             </tr>
         </div>
+
     </table>
 </div>
 </body>

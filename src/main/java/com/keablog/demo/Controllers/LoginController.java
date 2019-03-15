@@ -23,7 +23,7 @@ public class LoginController {
     LoginService loginService;
 
     @PostMapping("/login")
-    public String login(HttpSession httpSession, @ModelAttribute User user, Model model, Database database) throws SQLException {
+    public String login(HttpSession httpSession, @ModelAttribute User user, Model model) throws SQLException {
 
         if (loginService.verifyUser(user)) {
             httpSession.setAttribute("id", user.getId());

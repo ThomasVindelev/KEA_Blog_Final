@@ -9,13 +9,15 @@ import java.sql.SQLException;
 
 @Service
 public class LoginService {
-    Database database;
+
+    Database database = new Database();
+
+    public LoginService() throws SQLException {
+
+    }
+
     public boolean verifyUser(User user) throws SQLException {
-        ResultSet rs = database.verifyUser(user);
-        if (rs.next()) {
-            return true;
-        } else {
-            return false;
-        }
+        ResultSet resultSet = database.verifyUser(user);
+        return resultSet.next();
     }
 }
