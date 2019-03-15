@@ -2,6 +2,7 @@ package com.keablog.demo.Service;
 
 import com.keablog.demo.Database.Database;
 import com.keablog.demo.Objects.Message;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
@@ -12,26 +13,24 @@ import java.util.List;
 @Service
 public class MessageService {
 
-    private Database database = new Database();
+    @Autowired
+    private Database database;
+
     private ResultSet resultSet;
-
-    public MessageService() throws SQLException {
-
-    }
 
     public void newPost(Message message) throws SQLException {
         database.createPost(message);
     }
 
     public List<Message> getNewMessages() throws SQLException {
-        List<Message> messageList = new ArrayList<>();
+        List<Message> messageList;
         resultSet = database.getPosts(1);
         messageList = populateList(resultSet);
         return messageList;
     }
 
     public List<Message> getAllMessages() throws SQLException {
-        List<Message> messageList = new ArrayList<>();
+        List<Message> messageList;
         resultSet = database.getPosts(2);
         messageList = populateList(resultSet);
         return messageList;
