@@ -22,11 +22,13 @@
                 <a class="nav-link" href="/blog">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login">Log in</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
             </li>
+            <div th:if="${session.username == null}">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Log in</a>
+                </li>
+            </div>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">

@@ -19,8 +19,8 @@ public class MessageService {
 
     private ResultSet resultSet;
 
-    public void newPost(Message message, User user) throws SQLException {
-        database.createPost(message, user);
+    public void newPost(Message message) throws SQLException {
+        database.createPost(message);
     }
 
     public List<Message> getNewMessages() throws SQLException {

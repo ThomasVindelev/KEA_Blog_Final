@@ -19,14 +19,14 @@ public class Database {
 
     }
 
-    public void createPost(Message message, User user) throws SQLException {
+    public void createPost(Message message) throws SQLException {
         query = "INSERT INTO blogposts (`id_username`,`post_title`, `post_text`) VALUES (?, ?, ?)";
-        sendPostQuery(query, message, user);
+        sendPostQuery(query, message);
     }
 
-    public void sendPostQuery(String query, Message message, User user) throws SQLException {
+    public void sendPostQuery(String query, Message message) throws SQLException {
         preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setInt(1, 3);
+        preparedStatement.setInt(1, message.getUid());
         preparedStatement.setString(2, message.getTitle());
         preparedStatement.setString(3, message.getText());
         preparedStatement.executeUpdate();

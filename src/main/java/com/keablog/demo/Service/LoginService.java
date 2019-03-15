@@ -16,6 +16,17 @@ public class LoginService {
 
     public boolean verifyUser(User user) throws SQLException {
         ResultSet resultSet = database.verifyUser(user);
-        return resultSet.next();
+        if (resultSet.next()) {
+            user.setId(resultSet.getInt("id_users"));
+            user.setUsername(resultSet.getString("username"));
+            user.setFirstname(resultSet.getString("firstname"));
+            user.setLastname(resultSet.getString("lastname"));
+            user.setAge(resultSet.getInt("age"));
+            user.setId_role(resultSet.getInt("id_role"));
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

@@ -5,8 +5,10 @@ public class Message {
     private String title;
     private String text;
     private String username;
+    private int uid;
 
     public Message() {
+
     }
 
     public Message(String title, String text) {
@@ -36,5 +38,13 @@ public class Message {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 }

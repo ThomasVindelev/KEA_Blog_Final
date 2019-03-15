@@ -13,13 +13,13 @@ import java.sql.SQLException;
 @Controller
 public class LoginController {
 
+    @Autowired
+    LoginService loginService;
+
     @GetMapping("/login")
     public String getLoginForm() {
         return "login";
     }
-
-    @Autowired
-    LoginService loginService;
 
     @PostMapping("/login")
     public String login(HttpSession httpSession, @ModelAttribute User user, Model model) throws SQLException {
@@ -34,4 +34,5 @@ public class LoginController {
             return "login";
         }
     }
+
 }
