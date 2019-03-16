@@ -44,6 +44,7 @@ public class MessageService {
             message.setTitle(resultSet.getString("post_title"));
             message.setText(resultSet.getString("post_text"));
             message.setDate(resultSet.getDate("date"));
+            message.setTime(resultSet.getTime("date"));
             messageList.add(message);
         }
         return messageList;
