@@ -20,6 +20,7 @@
             <th>Subject</th>
             <th>Message</th>
             <th>User</th>
+            <th>Date</th>
             <div></div>
         </tr>
         <div th:each="message:${messages}">
@@ -27,6 +28,7 @@
                 <td><p th:text="${message.title}"></p></td>
                 <td><p th:text="${message.text}"></p></td>
                 <td><p th:text="${message.username}"></p></td>
+                <td><p th:text="${message.date}"></p></td>
             </tr>
         </div>
 

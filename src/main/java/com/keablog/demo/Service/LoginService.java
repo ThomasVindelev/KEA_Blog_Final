@@ -1,7 +1,7 @@
 package com.keablog.demo.Service;
 
 import com.keablog.demo.Database.Database;
-import com.keablog.demo.Objects.User;
+import com.keablog.demo.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

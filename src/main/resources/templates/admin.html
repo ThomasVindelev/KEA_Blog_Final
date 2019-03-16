@@ -7,10 +7,7 @@
 </head>
 <body>
 <div th:replace="fragments/headerBoot :: headerBoot"></div>
-<h1>Hello ADMIN!</h1>
-
-<p th:text="${title}"></p>
-<p th:text="${text}"></p>
+<h3>Hello <t th:text="${session.username}"></t>!</h3>
 
 </body>
 </html>

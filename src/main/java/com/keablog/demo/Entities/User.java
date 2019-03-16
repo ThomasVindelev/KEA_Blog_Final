@@ -1,5 +1,8 @@
-package com.keablog.demo.Objects;
+package com.keablog.demo.Entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class User {
 
     private int id;

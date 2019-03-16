@@ -1,10 +1,17 @@
-package com.keablog.demo.Objects;
+package com.keablog.demo.Entities;
 
+import javax.persistence.Entity;
+import java.sql.Date;
+import java.sql.Time;
+
+@Entity
 public class Message {
 
     private String title;
     private String text;
     private String username;
+    private Date date;
+    private Time time;
     private int uid;
 
     public Message() {
@@ -38,6 +45,22 @@ public class Message {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public int getUid() {

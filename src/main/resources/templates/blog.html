@@ -9,7 +9,7 @@
 <div th:replace="fragments/headerBoot :: headerBoot"></div>
 <br>
 <h2>Newest posts</h2>
-<div th:if="${session.username != null}">
+<div th:if="${session.id_role == 1}">
     <form th:action="@{/message}" method="post" th:object="${Message}">
         <input type="text" placeholder="Title" name="title">
         <input type="text" placeholder="Message" name="text">
@@ -29,12 +29,14 @@
             <th>Subject</th>
             <th>Message</th>
             <th>User</th>
+            <th>Date</th>
         </tr>
         <div th:each="message:${messages}">
             <tr>
                 <td><p th:text="${message.title}"></p></td>
                 <td><p th:text="${message.text}"></p></td>
                 <td><p th:text="${message.username}"></p></td>
+                <td><p th:text="${message.date}"></p></td>
             </tr>
         </div>
 

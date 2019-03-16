@@ -12,8 +12,11 @@
     <li><a href="/"><p>KEA Blog</p></a></li>
     <li><a href="/">Home</a></li>
     <li><a href="/blog">Blog</a></li>
-    <li><a href="/login">Log In</a></li>
     <li><a href="/about">About</a></li>
+    <li>
+        <a href="/login" th:if="${session.username == null}">Log In</a>
+        <a href="/logout" th:if="${session.username != null}">Log Out</a>
+    </li>
 
     <form action="/" method="get">
         <input type="text" placeholder="Search" name="search">

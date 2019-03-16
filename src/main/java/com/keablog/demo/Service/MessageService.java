@@ -1,8 +1,7 @@
 package com.keablog.demo.Service;
 
 import com.keablog.demo.Database.Database;
-import com.keablog.demo.Objects.Message;
-import com.keablog.demo.Objects.User;
+import com.keablog.demo.Entities.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +43,7 @@ public class MessageService {
             message.setUsername(resultSet.getString("username"));
             message.setTitle(resultSet.getString("post_title"));
             message.setText(resultSet.getString("post_text"));
+            message.setDate(resultSet.getDate("date"));
             messageList.add(message);
         }
         return messageList;
