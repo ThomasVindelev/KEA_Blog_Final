@@ -43,6 +43,13 @@ public class Database {
         return resultSet;
     }
 
+    public ResultSet getUsers() throws SQLException {
+        query = "SELECT * FROM users INNER JOIN roles ON users.id_role = id_roles ORDER BY id_users ASC";
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(query);
+        return resultSet;
+    }
+
     public ResultSet verifyUser(User user) throws SQLException {
         query = "SELECT * FROM users WHERE username = '" + user.getUsername() + "' AND password = '" + user.getPassword() + "'";
         preparedStatement = connection.prepareStatement(query);

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:if="${session.id_role == 1}">
+
+    <head>
+        <link href="https://bootswatch.com/4/litera/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+    <div th:replace="fragments/headerBoot :: headerBoot"></div>
+    <div>
+        <form th:action="@{/admin/control}" method="post" th:object="${User}">
+
+        </form>
+    </div>
+
+    <div>
+        <table class="table">
+
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Age</th>
+                <th>Role</th>
+            </tr>
+                <tr th:each="user:${users}">
+                    <td><p th:text="${user.id}"></p></td>
+                    <td><p th:text="${user.username}"></p></td>
+                    <td><p th:text="${user.firstname}"></p></td>
+                    <td><p th:text="${user.lastname}"></p></td>
+                    <td><p th:text="${user.age}"></p></td>
+                    <td><p th:text="${user.id_role}"></p></td>
+                </tr>
+
+
+        </table>
+    </div>
+    </body>
+
+</div>
+</html>
