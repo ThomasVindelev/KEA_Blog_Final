@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class MessageController {
 
     @Autowired
-    MessageService messageService;
+    private MessageService messageService;
 
     public MessageController() throws SQLException {
     }

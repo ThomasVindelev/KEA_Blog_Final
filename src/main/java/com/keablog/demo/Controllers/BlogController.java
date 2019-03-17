@@ -17,7 +17,7 @@ public class BlogController {
     }
 
     @Autowired
-    MessageService service;
+    private MessageService service;
 
     @GetMapping("/history")
     public String getHistory(Model model) throws SQLException {

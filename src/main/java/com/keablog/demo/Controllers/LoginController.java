@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class LoginController {
 
     @Autowired
-    LoginService loginService;
+    private LoginService loginService;
 
     @GetMapping("/login")
     public String getLoginForm() {

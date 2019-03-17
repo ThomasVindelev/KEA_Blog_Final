@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class AdminController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @GetMapping("/admin/control")
     public String getControl(Model model) throws SQLException {

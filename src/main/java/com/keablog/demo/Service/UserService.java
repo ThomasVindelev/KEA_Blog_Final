@@ -14,7 +14,7 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    Database database;
+    private Database database;
 
     public List<User> getUserList() throws SQLException {
         ResultSet resultSet = database.getUsers();

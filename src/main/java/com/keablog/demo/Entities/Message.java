@@ -1,10 +1,8 @@
 package com.keablog.demo.Entities;
 
-import javax.persistence.Entity;
 import java.sql.Date;
 import java.sql.Time;
 
-@Entity
 public class Message {
 
     private String title;
