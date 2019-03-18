@@ -22,6 +22,10 @@ public class MessageService {
         database.createPost(message);
     }
 
+    public void deleteMessage(Message message) {
+        database.deletePost(message);
+    }
+
     public List<Message> getNewMessages() throws SQLException {
         List<Message> messageList;
         resultSet = database.getPosts(1);

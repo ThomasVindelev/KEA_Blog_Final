@@ -20,10 +20,18 @@ public class MessageController {
     }
 
     @PostMapping("/message")
-    public String message(@ModelAttribute (name="Message") Message message, Model model) throws SQLException {
+    public String postMessage(@ModelAttribute (name="Message") Message message, Model model) throws SQLException {
         model.addAttribute("title", message.getTitle());
         model.addAttribute("text", message.getText());
+        model.addAttribute("id", message.getId());
         messageService.newPost(message);
+        return "redirect:/blog";
+    }
+
+    @PostMapping("/deletemessage")
+    public String deleteMessage(@ModelAttribute (name="Message") Message message, Model model) {
+        model.addAttribute("id", message.getId());
+        messageService.deleteMessage(message);
         return "redirect:/blog";
     }
 
