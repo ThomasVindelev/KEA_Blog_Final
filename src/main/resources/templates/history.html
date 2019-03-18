@@ -16,12 +16,15 @@
 <br>
 <div>
     <table class="table">
+
         <tr>
             <th>Subject</th>
             <th>Message</th>
             <th>User</th>
             <th>Date</th>
-            <div></div>
+            <div th:if="${session.id_role == 1}">
+                <th>Options</th>
+            </div>
         </tr>
         <div th:each="message:${messages}">
             <tr>
@@ -29,6 +32,12 @@
                 <td><p th:text="${message.text}"></p></td>
                 <td><p th:text="${message.username}"></p></td>
                 <td><p th:text="${message.date} + ' ' + ${message.time}"></p></td>
+                <div th:if="${session.id_role == 1}">
+                    <form th:action="@{/deletemessage}" method="post" th:object="${Message}">
+                        <input type="hidden" th:value="${message.id}" name="id">
+                        <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                    </form>
+                </div>
             </tr>
         </div>
 
