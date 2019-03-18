@@ -25,6 +25,7 @@
                 <th>Last name</th>
                 <th>Age</th>
                 <th>Role</th>
+                <th>Options</th>
             </tr>
                 <tr th:each="user:${users}">
                     <td><p th:text="${user.id}"></p></td>
@@ -33,6 +34,12 @@
                     <td><p th:text="${user.lastname}"></p></td>
                     <td><p th:text="${user.age}"></p></td>
                     <td><p th:text="${user.id_role}"></p></td>
+                    <div>
+                        <form th:action="@{/admin/deleteuser}" method="post" th:object="${User}">
+                            <input type="hidden" th:value="${user.id}" name="user_id">
+                            <td><button type="submit" class="btn btn-outline-danger">Delete</button></td>
+                        </form>
+                    </div>
                 </tr>
 
 

@@ -57,6 +57,13 @@ public class Database {
         return resultSet;
     }
 
+    public void deleteUser(User user) throws SQLException {
+        query = "DELETE FROM users WHERE id_users = " + user.getId() + "";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
     public ResultSet verifyUser(User user) throws SQLException {
         query = "SELECT * FROM users WHERE username = '" + user.getUsername() + "' AND password = '" + user.getPassword() + "'";
         preparedStatement = connection.prepareStatement(query);

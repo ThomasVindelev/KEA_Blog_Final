@@ -22,6 +22,10 @@ public class UserService {
         return userList;
     }
 
+    public void deleteUser(User user) throws SQLException {
+        database.deleteUser(user);
+    }
+
     public List<User> populateUserList(ResultSet resultSet) throws SQLException {
         List<User> userList = new ArrayList<>();
         while (resultSet.next()) {
