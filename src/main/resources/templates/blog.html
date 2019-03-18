@@ -30,6 +30,7 @@
             <th>Message</th>
             <th>User</th>
             <th>Date</th>
+            <td>Option</td>
         </tr>
         <div th:each="message:${messages}">
             <tr>
@@ -38,8 +39,8 @@
                 <td><p th:text="${message.username}"></p></td>
                 <td><p th:text="${message.date} + ' ' + ${message.time}"></p></td>
                 <form th:action="@{/deletemessage}" method="post" th:object="${Message}">
-                    <td><button type="submit" class="btn btn-danger">Delete</button></td>
                     <input type="hidden" th:value="${message.id}" name="id">
+                    <td><button type="submit" class="btn btn-danger">Delete</button></td>
                 </form>
             </tr>
         </div>

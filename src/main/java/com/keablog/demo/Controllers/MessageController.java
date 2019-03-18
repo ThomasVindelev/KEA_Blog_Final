@@ -16,21 +16,17 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    public MessageController() throws SQLException {
-    }
-
     @PostMapping("/message")
     public String postMessage(@ModelAttribute (name="Message") Message message, Model model) throws SQLException {
         model.addAttribute("title", message.getTitle());
         model.addAttribute("text", message.getText());
-        model.addAttribute("id", message.getId());
         messageService.newPost(message);
         return "redirect:/blog";
     }
 
     @PostMapping("/deletemessage")
-    public String deleteMessage(@ModelAttribute (name="Message") Message message, Model model) {
-        model.addAttribute("id", message.getId());
+    public String deleteMessage(@ModelAttribute (name="Message") Message message) throws SQLException {
+        System.out.println(message.getId());
         messageService.deleteMessage(message);
         return "redirect:/blog";
     }

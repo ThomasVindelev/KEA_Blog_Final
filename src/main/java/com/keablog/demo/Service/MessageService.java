@@ -22,7 +22,7 @@ public class MessageService {
         database.createPost(message);
     }
 
-    public void deleteMessage(Message message) {
+    public void deleteMessage(Message message) throws SQLException {
         database.deletePost(message);
     }
 
@@ -44,6 +44,7 @@ public class MessageService {
         List<Message> messageList = new ArrayList<>();
         while (resultSet.next()) {
             Message message = new Message();
+            message.setId(resultSet.getInt("id"));
             message.setUsername(resultSet.getString("username"));
             message.setTitle(resultSet.getString("post_title"));
             message.setText(resultSet.getString("post_text"));

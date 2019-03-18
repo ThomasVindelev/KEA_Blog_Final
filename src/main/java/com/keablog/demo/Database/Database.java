@@ -23,8 +23,11 @@ public class Database {
         sendPostQuery(query, message);
     }
 
-    public void deletePost(Message message) {
+    public void deletePost(Message message) throws SQLException {
         query = "DELETE FROM blogposts WHERE id = " + message.getId() + "";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
     }
 
     public void sendPostQuery(String query, Message message) throws SQLException {
