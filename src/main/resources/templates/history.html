@@ -35,7 +35,7 @@
                 <div th:if="${session.id_role == 1}">
                     <form th:action="@{/deletemessage}" method="post" th:object="${Message}">
                         <input type="hidden" th:value="${message.id}" name="id">
-                        <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                        <td><button type="submit" class="btn btn-outline-danger">Delete</button></td>
                     </form>
                 </div>
             </tr>

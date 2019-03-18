@@ -5,6 +5,7 @@ import com.keablog.demo.Service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -26,8 +27,17 @@ public class MessageController {
 
     @PostMapping("/deletemessage")
     public String deleteMessage(@ModelAttribute (name="Message") Message message) throws SQLException {
-        System.out.println(message.getId());
         messageService.deleteMessage(message);
+        return "redirect:/blog";
+    }
+
+    @GetMapping("/editmessage")
+    public String editMessage() {
+        return "edit";
+    }
+
+    @PostMapping("/editmessage")
+    public String editMessage(@ModelAttribute (name="Message") Message message, Model model) {
         return "redirect:/blog";
     }
 

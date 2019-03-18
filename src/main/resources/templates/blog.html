@@ -14,7 +14,8 @@
         <input type="text" placeholder="Title" name="title">
         <input type="text" placeholder="Message" name="text">
         <input type="hidden" th:value="${session.id}" name="uid">
-        <button type="submit">Post!</button>
+        <br><br>
+        <button type="submit" class="btn btn-outline-success">Post!</button>
     </form>
 </div>
 <br>
@@ -43,7 +44,10 @@
                 <div th:if="${session.id_role == 1}">
                     <form th:action="@{/deletemessage}" method="post" th:object="${Message}">
                         <input type="hidden" th:value="${message.id}" name="id">
-                        <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                        <td><button type="submit" class="btn btn-outline-danger">Delete</button></td>
+                    </form>
+                    <form th:action="@{/editmessage}" method="get" th:object="${Message}">
+                        <td><button type="submit" class="btn btn-outline-warning">Edit</button></td>
                     </form>
                 </div>
             </tr>
