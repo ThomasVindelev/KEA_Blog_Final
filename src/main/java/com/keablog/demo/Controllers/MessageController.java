@@ -33,7 +33,7 @@ public class MessageController {
 
     @GetMapping("/editmessage")
     public String editMessage() {
-        return "edit";
+        return "editmessage";
     }
 
     @PostMapping("/editmessage")
