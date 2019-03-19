@@ -57,6 +57,15 @@ public class Database {
         return resultSet;
     }
 
+    public void editUser(User user) throws SQLException {
+        query = "UPDATE users SET username = '" + user.getUsername() + "', firstname = '" + user.getFirstname() +
+                "', lastname = '" + user.getLastname() + "', age = " + user.getAge() + ", password = '" + user.getPassword() +
+                "', id_role = " + user.getId_role() + " WHERE id_users = " + user.getId() + "";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
     public void deleteUser(User user) throws SQLException {
         query = "DELETE FROM users WHERE id_users = " + user.getId() + "";
         preparedStatement = connection.prepareStatement(query);

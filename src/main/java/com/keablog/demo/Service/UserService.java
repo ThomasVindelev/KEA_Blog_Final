@@ -26,6 +26,10 @@ public class UserService {
         database.deleteUser(user);
     }
 
+    public void editUser(User user) throws SQLException {
+        database.editUser(user);
+    }
+
     public List<User> populateUserList(ResultSet resultSet) throws SQLException {
         List<User> userList = new ArrayList<>();
         while (resultSet.next()) {
@@ -35,6 +39,7 @@ public class UserService {
             user.setFirstname(resultSet.getString("firstname"));
             user.setLastname(resultSet.getString("lastname"));
             user.setAge(resultSet.getInt("age"));
+            user.setPassword(resultSet.getString("password"));
             user.setId_role(resultSet.getInt("id_role"));
             userList.add(user);
         }
