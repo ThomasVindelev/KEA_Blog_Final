@@ -16,11 +16,6 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @GetMapping("/login")
-    public String getLoginForm() {
-        return "login";
-    }
-
     @PostMapping("/login")
     public String login(HttpSession httpSession, @ModelAttribute User user, Model model) throws SQLException {
 
@@ -31,7 +26,7 @@ public class LoginController {
             return "admin";
         } else {
             model.addAttribute("invalid", true);
-            return "login";
+            return "index";
         }
     }
 

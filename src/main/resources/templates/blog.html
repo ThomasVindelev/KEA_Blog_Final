@@ -8,22 +8,21 @@
 <body>
 <div th:replace="fragments/headerBoot :: headerBoot"></div>
 <br>
-<h2>Newest posts</h2>
-<div th:if="${session.id_role == 1}">
+<h2 class="ml-3">Newest posts</h2>
+<div class="ml-3" th:if="${session.id_role == 1}">
     <form th:action="@{/message}" method="post" th:object="${Message}">
         <input type="text" placeholder="Title" name="title">
         <input type="text" placeholder="Message" name="text">
         <input type="hidden" th:value="${session.id}" name="uid">
-        <br><br>
-        <button type="submit" class="btn btn-outline-success">Post!</button>
+        <br>
+        <button type="submit" class="btn btn-outline-success mt-2">Post!</button>
     </form>
 </div>
 <br>
 <form method="get" action="/history">
-    <button type="submit">See all posts</button>
+    <button class="ml-3 mb-2" type="submit">See all posts</button>
 </form>
-<br>
-<div>
+<div class="ml-3">
     <table class="table">
 
         <tr>
@@ -41,7 +40,7 @@
                 <td><p th:text="${message.text}"></p></td>
                 <td><p th:text="${message.username}"></p></td>
                 <td><p th:text="${message.date} + ' ' + ${message.time}"></p></td>
-                <div th:if="${session.id_role == 1}">
+                <div th:if="${session.username == message.username}">
                     <form th:action="@{/deletemessage}" method="post" th:object="${Message}">
                         <input type="hidden" th:value="${message.id}" name="id">
                         <td><button type="submit" class="btn btn-outline-danger">Delete</button></td>
