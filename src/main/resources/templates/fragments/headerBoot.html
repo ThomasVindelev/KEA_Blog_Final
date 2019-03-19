@@ -27,16 +27,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin/control" th:if="${session.id_role == 1}">Control</a>
             </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout" th:if="${session.username != null}">Log out</a>
-                </li>
         </ul>
         <div th:if="${session.username == null}">
             <form th:action="@{/login}" method="post" th:object="${User}">
                 <input type="text" placeholder="Username" name="username">
                 <input type="password" placeholder="Password" name="password">
-                <button type="submit">Log in</button>
+                <button class="btn btn-success" type="submit">Log in</button>
                 <p th:if="${invalid}" class="error">Forkert brugernavn eller kodeord.</p>
+            </form>
+        </div>
+        <div th:if="${session.username != null}">
+            <form action="/logout" method="get">
+                <button class="btn btn-warning mr-3" type="submit">Log out</button>
             </form>
         </div>
         <p th:if="${session.username != null}">Logged in as<p class="ml-1" th:text="${session.username}"></p></p>
