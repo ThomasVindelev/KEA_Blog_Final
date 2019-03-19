@@ -36,7 +36,7 @@
                     <td><p th:text="${user.id_role}"></p></td>
                     <div>
                         <form th:action="@{/admin/deleteuser}" method="post" th:object="${User}">
-                            <input type="hidden" th:value="${user.id}" name="user_id">
+                            <input type="hidden" th:value="${user.id}" name="id">
                             <td><button type="submit" class="btn btn-outline-danger">Delete</button></td>
                         </form>
                     </div>

@@ -24,12 +24,10 @@ public class AdminController {
     }
 
     @PostMapping("/admin/deleteuser")
-    public String deleteUser(@ModelAttribute (name="User") User user) throws SQLException {
-        System.out.println(user.getId());
+    public String deleteUser(@ModelAttribute (name="id") User user) throws SQLException {
         userService.deleteUser(user);
         return "redirect:/admin/control";
     }
-
 
 
 

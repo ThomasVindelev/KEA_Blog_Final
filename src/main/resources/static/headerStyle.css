@@ -27,7 +27,7 @@ li a {
 }
 
 li a:hover {
-    background-color: red;
+    background-color: blue;
 }
 
 li a.active {
