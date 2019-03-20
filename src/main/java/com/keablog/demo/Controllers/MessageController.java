@@ -27,17 +27,21 @@ public class MessageController {
 
     @PostMapping("/deletemessage")
     public String deleteMessage(@ModelAttribute (name="Message") Message message) throws SQLException {
-        messageService.deleteMessage(message);
+        messageService.deletePost(message);
         return "redirect:/blog";
     }
 
     @GetMapping("/editmessage")
-    public String editMessage() {
+    public String editMessage(@ModelAttribute Message message, Model model) {
+        model.addAttribute("id", message.getId());
+        model.addAttribute("title", message.getTitle());
+        model.addAttribute("text", message.getText());
         return "editmessage";
     }
 
     @PostMapping("/editmessage")
-    public String editMessage(@ModelAttribute (name="Message") Message message, Model model) {
+    public String editMessage(@ModelAttribute Message message) throws SQLException {
+        messageService.editPost(message);
         return "redirect:/blog";
     }
 

@@ -47,6 +47,9 @@
                     </form>
                     <form th:action="@{/editmessage}" method="get" th:object="${Message}">
                         <input type="hidden" th:value="${message.id}" name="id">
+                        <input type="hidden" th:value="${message.username}" name="username">
+                        <input type="hidden" th:value="${message.title}" name="title">
+                        <input type="hidden" th:value="${message.text}" name="text">
                         <td><button type="submit" class="btn btn-outline-warning">Edit</button></td>
                     </form>
                 </div>

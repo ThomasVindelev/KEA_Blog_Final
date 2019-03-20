@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <link href="https://bootswatch.com/4/litera/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>Edit message</title>
-</head>
-<body>
-<div th:replace="fragments/headerBoot :: headerBoot"></div>
+<div th:if="${session.username == message.username}">
+    <head>
+        <link href="https://bootswatch.com/4/litera/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>Edit message</title>
+    </head>
+    <body>
+    <div th:replace="fragments/headerBoot :: headerBoot"></div>
+
+    <form th:action="@{/editmessage}" method="post" th:object="${Message}">
+        <input type="hidden" th:value="${message.id}" name="id">
+        <input type="text" placeholder="Title" th:value="${message.title}" name="title">
+        <input type="text" placeholder="Text" th:value="${message.text}" name="text">
+        <button type="submit" class="btn btn-outline-success">Edit message</button>
+    </form>
 
 
 
-</body>
+    </body>
+
+</div>
 </html>

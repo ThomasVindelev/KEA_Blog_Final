@@ -22,7 +22,11 @@ public class MessageService {
         database.createPost(message);
     }
 
-    public void deleteMessage(Message message) throws SQLException {
+    public void editPost(Message message) throws SQLException {
+        database.editPost(message);
+    }
+
+    public void deletePost(Message message) throws SQLException {
         database.deletePost(message);
     }
 

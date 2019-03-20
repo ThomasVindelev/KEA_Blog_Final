@@ -23,6 +23,13 @@ public class Database {
         sendPostQuery(query, message);
     }
 
+    public void editPost(Message message) throws SQLException {
+        query = "UPDATE blogposts SET post_title = '" + message.getTitle() + "', post_text = '" + message.getText() + "' WHERE id = " + message.getId() + "";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
     public void deletePost(Message message) throws SQLException {
         query = "DELETE FROM blogposts WHERE id = " + message.getId() + "";
         preparedStatement = connection.prepareStatement(query);
@@ -41,7 +48,7 @@ public class Database {
 
     public ResultSet getPosts(int choice) throws SQLException {
         if (choice == 1) {
-            query = "SELECT * FROM blogposts INNER JOIN users ON blogposts.id_username = users.id_users ORDER BY id DESC LIMIT 10";
+            query = "SELECT * FROM blogposts INNER JOIN users ON blogposts.id_username = users.id_users ORDER BY date DESC LIMIT 10";
         } else {
             query = "SELECT * FROM blogposts INNER JOIN users ON blogposts.id_username = users.id_users ORDER BY id DESC";
         }
