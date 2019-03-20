@@ -39,7 +39,7 @@
                             <input type="hidden" th:value="${user.id}" name="id">
                             <td><button type="submit" class="btn btn-outline-danger">Delete</button></td>
                         </form>
-                        <form th:action="@{/admin/edituser}" method="get" th:object="${User}">
+                        <form th:action="@{/edituser}" method="post" th:object="${User}">
                             <input type="hidden" th:value="${user.id}" name="id">
                             <input type="hidden" th:value="${user.username}" name="username">
                             <input type="hidden" th:value="${user.firstname}" name="firstname">

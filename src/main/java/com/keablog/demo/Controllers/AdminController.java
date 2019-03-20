@@ -46,7 +46,9 @@ public class AdminController {
         return "redirect:/admin/control";
     }
 
-    @GetMapping("/admin/edituser")
+
+
+    @PostMapping("/edituser")
     public String editUser(@ModelAttribute  User user, Model model) {
         model.addAttribute("id", user.getId());
         model.addAttribute("username", user.getUsername());
