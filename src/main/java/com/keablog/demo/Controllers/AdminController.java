@@ -2,6 +2,7 @@ package com.keablog.demo.Controllers;
 
 import com.keablog.demo.Entities.Message;
 import com.keablog.demo.Entities.User;
+import com.keablog.demo.Service.MessageService;
 import com.keablog.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,21 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MessageService messageService;
+
+    @GetMapping("/chat")
+    public String getChat(Model model) throws SQLException {
+        model.addAttribute("users", userService.getUserList());
+        return "chat";
+    }
+
+    @PostMapping("/chat")
+    public String sendChat(@ModelAttribute Message message) throws SQLException {
+        messageService.newPost(message);
+        return "redirect:/blog";
+    }
 
     @GetMapping("/admin/control")
     public String getControl(Model model) throws SQLException {
