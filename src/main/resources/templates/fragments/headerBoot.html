@@ -39,7 +39,8 @@
                 <p th:if="${invalid}" class="error">Forkert brugernavn eller kodeord.</p>
             </form>
         </div>
-        <p th:if="${session.username != null}">Logged in as<p class="ml-1" th:text="${session.username}"></p></p>
+
+        <p th:if="${session.username != null}">Logged in as<p th:text="${session.username}"></p></p>
         <div th:if="${session.username != null}">
             <form action="/logout" method="get">
                 <button class="btn btn-warning" type="submit">Log out</button>

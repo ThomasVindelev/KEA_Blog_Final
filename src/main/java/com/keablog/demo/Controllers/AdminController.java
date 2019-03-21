@@ -1,5 +1,6 @@
 package com.keablog.demo.Controllers;
 
+import com.keablog.demo.Entities.Chat;
 import com.keablog.demo.Entities.Message;
 import com.keablog.demo.Entities.User;
 import com.keablog.demo.Service.MessageService;
@@ -25,12 +26,13 @@ public class AdminController {
     @GetMapping("/chat")
     public String getChat(Model model) throws SQLException {
         model.addAttribute("users", userService.getUserList());
+        model.addAttribute("chats", messageService.getChat());
         return "chat";
     }
 
     @PostMapping("/chat")
-    public String sendChat(@ModelAttribute Message message) throws SQLException {
-        messageService.newPost(message);
+    public String sendChat(@ModelAttribute Chat chat) throws SQLException {
+        messageService.newChat(chat);
         return "redirect:/blog";
     }
 

@@ -12,7 +12,7 @@
 <div class="ml-3" th:if="${session.id_role == 1}">
     <form th:action="@{/message}" method="post" th:object="${Message}">
         <input type="text" placeholder="Title" name="title">
-        <input type="text" placeholder="Message" name="text">
+        <textarea placeholder="Message" name="text"></textarea>
         <input type="hidden" th:value="${session.id}" name="uid">
         <br>
         <button type="submit" class="btn btn-outline-success mt-2">Post!</button>

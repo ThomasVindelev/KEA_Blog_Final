@@ -1,6 +1,7 @@
 package com.keablog.demo.Service;
 
 import com.keablog.demo.Database.Database;
+import com.keablog.demo.Entities.Chat;
 import com.keablog.demo.Entities.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,23 @@ public class MessageService {
 
     public void deletePost(Message message) throws SQLException {
         database.deletePost(message);
+    }
+
+    public void newChat(Chat chat) throws SQLException {
+        database.newChat(chat);
+    }
+
+    public List<Chat> getChat() throws SQLException {
+        List<Chat> chatList = new ArrayList<>();
+        resultSet = database.getChat();
+        while (resultSet.next()) {
+            Chat chat = new Chat();
+            chat.setId(resultSet.getInt("id_chat"));
+            chat.setText(resultSet.getString("chat_text"));
+            chat.setSent_to(resultSet.getInt("sent_to"));
+            chat.setSent_from(resultSet.getInt("sent_from"));
+        }
+        return chatList;
     }
 
     public List<Message> getNewMessages() throws SQLException {

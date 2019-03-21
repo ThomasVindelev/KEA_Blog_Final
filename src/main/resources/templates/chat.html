@@ -11,19 +11,37 @@
     <div th:replace="fragments/headerBoot :: headerBoot"></div>
 
     <div class="ml-3" th:if="${session.id_role == 1}">
-        <form th:action="@{/message}" method="post" th:object="${Message}">
+        <form th:action="@{/chat}" method="post" th:object="${Chat}">
             <div class="form-group">
                 <label>Select user</label>
-                <select class="form-control" name="uid">
+                <select class="form-control" name="sent_to">
                     <option th:each="user:${users}" th:value="${user.id}"><p th:text="${user.username}"></p></option>
                 </select>
             </div>
-            <input type="text" placeholder="Title" name="title">
             <input type="text" placeholder="Message" name="text">
+            <input type="hidden" th:value="${session.id}" name="sent_from">
             <br>
             <button type="submit" class="btn btn-outline-success mt-2">Post!</button>
         </form>
     </div>
+
+    <table class="table">
+        <tr>
+            <th>Text</th>
+            <th>Sent from</th>
+        </tr>
+        <div th:each="chat:${chats}">
+
+            <tr>
+
+                <td><p th:text="${chat.text}"></p></td>
+                <td><p th:text="${chat.sent_from}"></p></td>
+
+            </tr>
+
+        </div>
+
+    </table>
 
     </body>
 </div>

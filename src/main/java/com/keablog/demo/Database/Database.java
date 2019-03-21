@@ -1,4 +1,5 @@
 package com.keablog.demo.Database;
+import com.keablog.demo.Entities.Chat;
 import com.keablog.demo.Entities.Message;
 import com.keablog.demo.Entities.User;
 import org.springframework.stereotype.Repository;
@@ -35,6 +36,30 @@ public class Database {
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.executeUpdate();
         preparedStatement.close();
+    }
+
+    public void newChat(Chat chat) throws SQLException {
+        query = "INSERT INTO chat (`id_chat`, `chat_text`, `sent_to`, `sent_from`) VALUES (?, ?, ?, ?)";
+        sendChat(chat, query);
+    }
+
+    public void sendChat(Chat chat, String query) throws SQLException {
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, chat.getId());
+        preparedStatement.setString(2, chat.getText());
+        preparedStatement.setInt(3, chat.getSent_to());
+        preparedStatement.setInt(4, chat.getSent_from());
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    public ResultSet getChat() throws SQLException {
+        query = "SELECT * FROM chat " +
+                "INNER JOIN users AS u1 ON chat.sent_to = u1.id_users " +
+                "INNER JOIN users AS u2 ON chat.sent_from = u2.id_users";
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(query);
+        return resultSet;
     }
 
     public void sendPostQuery(String query, Message message) throws SQLException {
