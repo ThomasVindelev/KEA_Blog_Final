@@ -18,7 +18,7 @@
                     <option th:each="user:${users}" th:value="${user.id}"><p th:text="${user.username}"></p></option>
                 </select>
             </div>
-            <input type="text" placeholder="Message" name="text">
+            <textarea placeholder="Message" name="text"></textarea>
             <input type="hidden" th:value="${session.id}" name="sent_from">
             <br>
             <button type="submit" class="btn btn-outline-success mt-2">Post!</button>
@@ -30,12 +30,12 @@
             <th>Text</th>
             <th>Sent from</th>
         </tr>
-        <div th:each="chat:${chats}">
+        <div th:each="chat:${chats}" th:if="${session.id == chat.sent_to}">
 
             <tr>
 
                 <td><p th:text="${chat.text}"></p></td>
-                <td><p th:text="${chat.sent_from}"></p></td>
+                <td><p th:text="${chat.sent}"></p></td>
 
             </tr>
 

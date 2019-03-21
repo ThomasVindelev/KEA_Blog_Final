@@ -56,7 +56,7 @@ public class Database {
     public ResultSet getChat() throws SQLException {
         query = "SELECT * FROM chat " +
                 "INNER JOIN users AS u1 ON chat.sent_to = u1.id_users " +
-                "INNER JOIN users AS u2 ON chat.sent_from = u2.id_users";
+                "INNER JOIN users AS u2 ON chat.sent_from = u2.id_users ORDER BY id_chat DESC";
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
         return resultSet;

@@ -42,8 +42,11 @@ public class MessageService {
             Chat chat = new Chat();
             chat.setId(resultSet.getInt("id_chat"));
             chat.setText(resultSet.getString("chat_text"));
+            chat.setReceived(resultSet.getString("u1.username"));
+            chat.setSent(resultSet.getString("u2.username"));
             chat.setSent_to(resultSet.getInt("sent_to"));
             chat.setSent_from(resultSet.getInt("sent_from"));
+            chatList.add(chat);
         }
         return chatList;
     }
