@@ -42,16 +42,25 @@ public class AdminController {
         return "control";
     }
 
+    @GetMapping("/admin/adduser")
+    public String addUser() {
+        return "adduser";
+    }
+
+    @PostMapping("/admin/adduser")
+    public String addUser(@ModelAttribute (name = "User") User user) throws SQLException {
+        userService.addUser(user);
+        return "redirect:/admin/control";
+    }
+
     @PostMapping("/admin/deleteuser")
     public String deleteUser(@ModelAttribute (name="id") User user) throws SQLException {
         userService.deleteUser(user);
         return "redirect:/admin/control";
     }
 
-
-
     @PostMapping("/edituser")
-    public String editUser(@ModelAttribute  User user, Model model) {
+    public String editUser(@ModelAttribute User user, Model model) {
         model.addAttribute("id", user.getId());
         model.addAttribute("username", user.getUsername());
         model.addAttribute("firstname", user.getFirstname());

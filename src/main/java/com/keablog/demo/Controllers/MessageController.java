@@ -18,9 +18,7 @@ public class MessageController {
     private MessageService messageService;
 
     @PostMapping("/message")
-    public String postMessage(@ModelAttribute (name="Message") Message message, Model model) throws SQLException {
-        model.addAttribute("title", message.getTitle());
-        model.addAttribute("text", message.getText());
+    public String postMessage(@ModelAttribute (name="Message") Message message) throws SQLException {
         messageService.newPost(message);
         return "redirect:/blog";
     }

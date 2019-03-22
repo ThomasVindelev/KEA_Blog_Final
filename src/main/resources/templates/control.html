@@ -7,56 +7,63 @@
         <meta charset="UTF-8">
         <title>Title</title>
     </head>
+
     <body>
     <div th:replace="fragments/headerBoot :: headerBoot"></div>
 
     <div>
         <form th:action="@{/admin/control}" method="post" th:object="${User}">
 
+            <div>
+                <table class="table">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Age</th>
+                        <th>Role</th>
+                        <th>Options</th>
+                    </tr>
+                    <tr th:each="user:${users}">
+                        <td><p th:text="${user.id}"></p></td>
+                        <td><p th:text="${user.username}"></p></td>
+                        <td><p th:text="${user.firstname}"></p></td>
+                        <td><p th:text="${user.lastname}"></p></td>
+                        <td><p th:text="${user.age}"></p></td>
+                        <td><p th:text="${user.id_role}"></p></td>
+                        <div>
+                            <td><form th:action="@{/admin/deleteuser}" method="post" th:object="${User}">
+                                <input type="hidden" th:value="${user.id}" name="id">
+                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            </form></td>
+                            <td><form th:action="@{/edituser}" method="post" th:object="${User}">
+                                <input type="hidden" th:value="${user.id}" name="id">
+                                <input type="hidden" th:value="${user.username}" name="username">
+                                <input type="hidden" th:value="${user.firstname}" name="firstname">
+                                <input type="hidden" th:value="${user.lastname}" name="lastname">
+                                <input type="hidden" th:value="${user.age}" name="age">
+                                <input type="hidden" th:value="${user.password}" name="password">
+                                <input type="hidden" th:value="${user.id_role}" name="id_role">
+                                <button type="submit" class="btn btn-outline-warning">Edit</button>
+                            </form></td>
+                        </div>
+                    </tr>
+
+
+                </table>
+            </div>
+
         </form>
-    </div>
 
-    <div>
-        <table class="table">
+        <form action="/admin/adduser" method="get">
+            <button type="submit" class="btn btn-outline-success">Add user</button>
+        </form>
 
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Age</th>
-                <th>Role</th>
-                <th>Options</th>
-            </tr>
-                <tr th:each="user:${users}">
-                    <td><p th:text="${user.id}"></p></td>
-                    <td><p th:text="${user.username}"></p></td>
-                    <td><p th:text="${user.firstname}"></p></td>
-                    <td><p th:text="${user.lastname}"></p></td>
-                    <td><p th:text="${user.age}"></p></td>
-                    <td><p th:text="${user.id_role}"></p></td>
-                    <div>
-                        <form th:action="@{/admin/deleteuser}" method="post" th:object="${User}">
-                            <input type="hidden" th:value="${user.id}" name="id">
-                            <td><button type="submit" class="btn btn-outline-danger">Delete</button></td>
-                        </form>
-                        <form th:action="@{/edituser}" method="post" th:object="${User}">
-                            <input type="hidden" th:value="${user.id}" name="id">
-                            <input type="hidden" th:value="${user.username}" name="username">
-                            <input type="hidden" th:value="${user.firstname}" name="firstname">
-                            <input type="hidden" th:value="${user.lastname}" name="lastname">
-                            <input type="hidden" th:value="${user.age}" name="age">
-                            <input type="hidden" th:value="${user.password}" name="password">
-                            <input type="hidden" th:value="${user.id_role}" name="id_role">
-                            <td><button type="submit" class="btn btn-outline-warning">Edit</button></td>
-                        </form>
-                    </div>
-                </tr>
-
-
-        </table>
-    </div>
     </body>
+
+
 
 </div>
 </html>

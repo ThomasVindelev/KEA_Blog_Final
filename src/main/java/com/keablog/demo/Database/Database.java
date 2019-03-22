@@ -89,6 +89,20 @@ public class Database {
         return resultSet;
     }
 
+    public void addUser(User user) throws SQLException {
+        query = "INSERT INTO users (`username`, `firstname`, `lastname`, `age`, `password`, `id_role`) VALUES (?, ?, ?, ?, ?, ?)";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, user.getUsername());
+        preparedStatement.setString(2, user.getFirstname());
+        preparedStatement.setString(3, user.getLastname());
+        preparedStatement.setInt(4, user.getAge());
+        preparedStatement.setString(5, user.getPassword());
+        preparedStatement.setInt(6, user.getId_role());
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+
     public void editUser(User user) throws SQLException {
         query = "UPDATE users SET username = '" + user.getUsername() + "', firstname = '" + user.getFirstname() +
                 "', lastname = '" + user.getLastname() + "', age = " + user.getAge() + ", password = '" + user.getPassword() +

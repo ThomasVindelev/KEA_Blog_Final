@@ -22,6 +22,10 @@ public class UserService {
         return userList;
     }
 
+    public void addUser(User user) throws SQLException {
+        database.addUser(user);
+    }
+
     public void deleteUser(User user) throws SQLException {
         database.deleteUser(user);
     }

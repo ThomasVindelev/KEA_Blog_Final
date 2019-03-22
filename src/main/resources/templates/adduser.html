@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:if="${session.id == 1}">
+    <head>
+        <link href="https://bootswatch.com/4/litera/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+    <div th:replace="fragments/headerBoot :: headerBoot"></div>
+
+        <h3>Add user</h3>
+
+        <form th:action="@{/admin/adduser}" method="post" th:object="${User}">
+            <input type="text" placeholder="Username" name="username">
+            <input type="text" placeholder="First name" name="firstname">
+            <input type="text" placeholder="Last name" name="lastname">
+            <input type="text" placeholder="Age" name="age">
+            <input type="text" placeholder="Password" name="password">
+            <input type="text" placeholder="Role ID" name="id_role">
+            <button type="submit" class="btn btn-outline-success">Add user</button>
+        </form>
+
+    </body>
+
+</div>
+
+</html>
