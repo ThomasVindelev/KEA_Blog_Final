@@ -1,6 +1,6 @@
 package com.keablog.demo.Controllers;
 
-import com.keablog.demo.Entities.Message;
+import com.keablog.demo.Model.Message;
 import com.keablog.demo.Service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

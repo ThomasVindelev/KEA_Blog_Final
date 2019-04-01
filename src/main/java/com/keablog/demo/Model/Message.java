@@ -1,4 +1,4 @@
-package com.keablog.demo.Entities;
+package com.keablog.demo.Model;
 
 import java.sql.Date;
 import java.sql.Time;

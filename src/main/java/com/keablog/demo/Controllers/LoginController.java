@@ -1,6 +1,6 @@
 package com.keablog.demo.Controllers;
 
-import com.keablog.demo.Entities.User;
+import com.keablog.demo.Model.User;
 import com.keablog.demo.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

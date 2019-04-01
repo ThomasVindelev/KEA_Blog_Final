@@ -1,7 +1,7 @@
 package com.keablog.demo.Database;
-import com.keablog.demo.Entities.Chat;
-import com.keablog.demo.Entities.Message;
-import com.keablog.demo.Entities.User;
+import com.keablog.demo.Model.Chat;
+import com.keablog.demo.Model.Message;
+import com.keablog.demo.Model.User;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;

@@ -1,8 +1,7 @@
 package com.keablog.demo.Controllers;
 
-import com.keablog.demo.Entities.Chat;
-import com.keablog.demo.Entities.Message;
-import com.keablog.demo.Entities.User;
+import com.keablog.demo.Model.Chat;
+import com.keablog.demo.Model.User;
 import com.keablog.demo.Service.MessageService;
 import com.keablog.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
