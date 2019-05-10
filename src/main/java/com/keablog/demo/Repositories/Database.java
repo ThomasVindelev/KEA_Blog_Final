@@ -1,4 +1,4 @@
-package com.keablog.demo.Database;
+package com.keablog.demo.Repositories;
 import com.keablog.demo.Model.Chat;
 import com.keablog.demo.Model.Message;
 import com.keablog.demo.Model.User;
@@ -10,7 +10,7 @@ import java.sql.*;
 public class Database {
 
     private PreparedStatement preparedStatement;
-    private Connection connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/keablog?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false", "keablog", "Rf40H?f1LB?V");;
+    private Connection connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/keablog?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&autoReconnect=true", "keablog", "Rf40H?f1LB?V");;
     private Statement statement;
     private ResultSet resultSet;
     private String query;

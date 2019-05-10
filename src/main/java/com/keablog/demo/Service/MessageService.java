@@ -1,6 +1,6 @@
 package com.keablog.demo.Service;
 
-import com.keablog.demo.Database.Database;
+import com.keablog.demo.Repositories.Database;
 import com.keablog.demo.Model.Chat;
 import com.keablog.demo.Model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
